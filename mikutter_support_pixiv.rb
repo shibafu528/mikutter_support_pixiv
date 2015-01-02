@@ -21,12 +21,12 @@ class PixivServer
 
     # 開始と終了の処理これでいいのかわからない...
     def start()
-        @thread = Thread.new do 
+        @thread = Thread.new do
             @server.start
         end
     end
 
-    def shutdown() 
+    def shutdown()
         @thread.kill
         @server.shutdown
     end
@@ -60,7 +60,7 @@ class PixivServer
 
             unless illust_url.nil? then
                 return @agent.get(illust_url, [], page_url).body
-            else 
+            else
                 return nil
             end
         rescue => e
@@ -72,8 +72,8 @@ end
 
 Plugin.create(:mikutter_support_pixiv) do
 
-    Plugin[:openimg].addsupport(PixivServer::PIX_REGEX, nil) do |url, cancel|
-        @server.get_thumb_url(url)
+    defimageopener("Pixiv", PixivServer::PIX_REGEX) do |url|
+        open(@server.get_thumb_url(url))
     end
 
     @server = PixivServer.new
