@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'mechanize'
-gem 'webrick'
+gem 'nokogiri'
+gem 'httpclient'
+
