@@ -4,7 +4,7 @@ require 'httpclient'
 require 'open-uri'
 
 module Plugin::SupportPixiv
-  PIX_REGEX = /^http:\/\/(?:www\.)?pixiv\.net\/member_illust\.php\?(?:.*)&?illust_id=(\d+)(?:&.*)?$/
+  PIX_REGEX = /^https?:\/\/(?:www\.)?pixiv\.net\/member_illust\.php\?(?:.*)&?illust_id=(\d+)(?:&.*)?$/
     
   class << self
     
